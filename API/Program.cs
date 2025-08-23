@@ -19,7 +19,7 @@ namespace API
             builder.Services.AddDbContext<StoreContext>(options =>
                 options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
             var app = builder.Build();
-
+            builder.Services.AddCors();
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
@@ -27,6 +27,10 @@ namespace API
                 app.UseSwaggerUI();
             }
 
+            app.UseCors(opt =>
+            {
+                opt.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:3000");
+            });
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
