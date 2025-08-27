@@ -4,9 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
 {
-    [ApiController]
-    [Route("api/products")]
-    public class ProductController : ControllerBase
+    public class ProductController : BaseApiController
     {
         private readonly StoreContext context;
 
