@@ -1,5 +1,6 @@
 
 using API.Data;
+using API.Middleware;
 using Microsoft.EntityFrameworkCore;
 
 namespace API
@@ -20,6 +21,7 @@ namespace API
                 options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
             var app = builder.Build();
             builder.Services.AddCors();
+            app.UseMiddleware<ExceptionMiddleware>();
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
