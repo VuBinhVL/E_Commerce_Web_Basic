@@ -5,7 +5,7 @@ import { router } from "../router/Routes";
 axios.defaults.baseURL = "http://localhost:5000/api/";
 
 const responseBody = (response: AxiosResponse) => response.data;
-const sleep = () => new Promise(resolve => setTimeout(resolve, 500));
+const sleep = () => new Promise(resolve => setTimeout(resolve, 300));
 
 axios.interceptors.response.use(async response => {
   await sleep();
