@@ -66,12 +66,11 @@
               "Title": "ProductExtensions.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\ReStore\\API\\Extensions\\ProductExtensions.cs",
               "RelativeDocumentMoniker": "API\\Extensions\\ProductExtensions.cs",
-              "ToolTip": "C:\\Users\\Admin\\source\\repos\\ReStore\\API\\Extensions\\ProductExtensions.cs*",
-              "RelativeToolTip": "API\\Extensions\\ProductExtensions.cs*",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAqwBMAAAAQAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\Admin\\source\\repos\\ReStore\\API\\Extensions\\ProductExtensions.cs",
+              "RelativeToolTip": "API\\Extensions\\ProductExtensions.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAAB0AAABHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-20T06:42:41.861Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-20T06:42:41.861Z"
             },
             {
               "$type": "Document",
@@ -79,9 +78,9 @@
               "Title": "ProductController.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\ReStore\\API\\Controllers\\ProductController.cs",
               "RelativeDocumentMoniker": "API\\Controllers\\ProductController.cs",
-              "ToolTip": "C:\\Users\\Admin\\source\\repos\\ReStore\\API\\Controllers\\ProductController.cs*",
-              "RelativeToolTip": "API\\Controllers\\ProductController.cs*",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAswBgAAAADAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\Admin\\source\\repos\\ReStore\\API\\Controllers\\ProductController.cs",
+              "RelativeToolTip": "API\\Controllers\\ProductController.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAA9wBYAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-20T06:34:28.998Z",
               "EditorCaption": ""

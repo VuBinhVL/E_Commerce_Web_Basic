@@ -1,12 +1,20 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import axios, { AxiosError, type AxiosResponse } from "axios";
 import { toast } from "react-toastify";
-import { router } from "../router/Routes";
 import { PaginatedResponse } from "../models/pagination";
+import { router } from "../router/Routes";
+import { store } from "../store/configureStore";
 
 axios.defaults.baseURL = "http://localhost:5000/api/";
 
 const responseBody = (response: AxiosResponse) => response.data;
 const sleep = () => new Promise(resolve => setTimeout(resolve, 300));
+
+axios.interceptors.request.use(config => {
+  const token = store.getState().account.user?.token;
+  if (token) config.headers.Authorization = `Bearer ${token}`;
+  return config;
+})
 
 axios.interceptors.response.use(async response => {
   await sleep();
@@ -73,9 +81,17 @@ const Basket = {
   get: () => requests.get("basket"),
   addItem: (productId: number, quantity = 1) => requests.post(`basket?productId=${productId}&quantity=${quantity}`, {}),
   removeItem: (productId: number, quantity = 1) => requests.delete(`basket?productId=${productId}&quantity=${quantity}`),
+};
+
+const Account = {
+  login: (values: any) => requests.post("account/login", values),
+  register: (values: any) => requests.post("account/register", values),
+  currentUser: () => requests.get("account/currentUser"),
 }
+
 export const agent = {
   Catalog,
   testErrors,
   Basket,
+  Account
 };
