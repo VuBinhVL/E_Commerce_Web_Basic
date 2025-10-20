@@ -1,18 +1,18 @@
 import { createBrowserRouter, Navigate } from "react-router-dom";
 import AboutPage from "../../features/about/AboutPage";
-import Catalog from "../../features/catalog/Catalog";
-import ProductDetails from "../../features/catalog/ProductDetails";
-import HomePage from "../../features/home/HomePage";
-import App from "../layout/App";
-import ContactPage from "../../features/contact/ContactPage";
-import ServerError from "../errors/ServerError";
-import NotFound from "../errors/NotFound";
-import BasketPage from "../../features/basket/BasketPage";
-import CheckoutPage from "../../features/checkout/CheckoutPage";
 import Login from "../../features/account/Login";
 import Register from "../../features/account/Register";
-import RequireAuth from "./RequireAuth";
+import BasketPage from "../../features/basket/BasketPage";
+import Catalog from "../../features/catalog/Catalog";
+import ProductDetails from "../../features/catalog/ProductDetails";
+import CheckoutWrapper from "../../features/checkout/CheckoutWrapper";
+import ContactPage from "../../features/contact/ContactPage";
+import HomePage from "../../features/home/HomePage";
 import Orders from "../../features/orders/Orders";
+import NotFound from "../errors/NotFound";
+import ServerError from "../errors/ServerError";
+import App from "../layout/App";
+import RequireAuth from "./RequireAuth";
 
 export const router = createBrowserRouter([
   {
@@ -21,7 +21,7 @@ export const router = createBrowserRouter([
     children: [
       {
         element: <RequireAuth />, children: [
-          { path: "checkout", element: <CheckoutPage /> },
+          { path: "checkout", element: <CheckoutWrapper /> },
           { path: "orders", element: <Orders /> },
         ]
       },

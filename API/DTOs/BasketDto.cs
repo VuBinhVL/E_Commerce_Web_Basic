@@ -6,5 +6,7 @@ namespace API.DTOs
         public string BuyerId { get; set; }
 
         public List<BasketItemDto> Items { get; set; } = new();
+        public string PaymentIntentId { get; set; }
+        public string ClientSecret { get; set; }
     }
 }

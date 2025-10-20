@@ -35,6 +35,7 @@ namespace API.Controllers
                 .FirstOrDefaultAsync();
         }
 
+        [Authorize]
         [HttpPost]
         public async Task<ActionResult<int>> CreateOrder(CreateOrderDto order)
         {
@@ -77,7 +78,7 @@ namespace API.Controllers
                 OrderItems = items,
                 Subtotal = subtotal,
                 ShippingFee = shippingFee,
-                Status = OrderStatus.Pending
+                PaymentIntentId = basket.PaymentIntentId
             };
 
             _context.Orders.Add(orderToCreate);

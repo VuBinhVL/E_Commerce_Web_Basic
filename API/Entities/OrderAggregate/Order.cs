@@ -17,7 +17,7 @@ namespace API.Entities.OrderAggregate
         public OrderStatus Status { get; set; }
         public long Subtotal { get; set; }
         public long ShippingFee { get; set; }
-
+        public string PaymentIntentId { get; set; }
         public long GetTotal()
         {
             return Subtotal + ShippingFee;
