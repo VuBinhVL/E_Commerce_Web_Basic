@@ -5,7 +5,7 @@ import { PaginatedResponse } from "../models/pagination";
 import { router } from "../router/Routes";
 import { store } from "../store/configureStore";
 
-axios.defaults.baseURL = "http://localhost:5000/api/";
+axios.defaults.baseURL = import.meta.env.VITE_API_URL;
 
 const responseBody = (response: AxiosResponse) => response.data;
 const sleep = () => new Promise(resolve => setTimeout(resolve, 300));
@@ -17,7 +17,8 @@ axios.interceptors.request.use(config => {
 })
 
 axios.interceptors.response.use(async response => {
-  await sleep();
+  if (import.meta.env.DEV)
+    await sleep();
   const pagintaion = response.headers['pagination'];
   if (pagintaion) {
     response.data = new PaginatedResponse(response.data, JSON.parse(pagintaion));

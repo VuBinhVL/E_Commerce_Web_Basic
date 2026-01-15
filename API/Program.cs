@@ -48,7 +48,7 @@ namespace API
                 });
             });
             builder.Services.AddDbContext<StoreContext>(options =>
-                options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
+                options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
             builder.Services.AddCors();
             //Cấu hình Identity
             builder.Services.AddIdentityCore<User>(opt =>
@@ -87,6 +87,8 @@ namespace API
                 });
             }
 
+            app.UseDefaultFiles(); //serve file index.html as default
+            app.UseStaticFiles(); //serve all files in wwwroot folder
             app.UseCors(opt =>
             {
                 opt.AllowAnyHeader().AllowAnyMethod().AllowCredentials().WithOrigins("http://localhost:3000");
@@ -97,6 +99,8 @@ namespace API
 
 
             app.MapControllers();
+            app.MapFallbackToController("Index", "Fallback"); //nếu không tìm thấy route nào thì trả về FallbackController
+
             var scope = app.Services.CreateScope();
             var context = scope.ServiceProvider.GetRequiredService<StoreContext>();
             var userManager = scope.ServiceProvider.GetRequiredService<UserManager<User>>();

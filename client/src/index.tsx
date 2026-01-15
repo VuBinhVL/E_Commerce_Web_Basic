@@ -9,6 +9,9 @@ import { StoreProvider } from "./app/context/StoreContext.tsx";
 import "./app/layout/styles.css";
 import { router } from "./app/router/Routes.tsx";
 import { store } from "./app/store/configureStore.ts";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 
 const root = createRoot(document.getElementById("root") as HTMLElement);
 root.render(
